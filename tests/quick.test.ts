@@ -1,4 +1,5 @@
 import { median3, quicksort } from "../src/quick";
+import { sortTests } from "./testCases";
 
 const median3_tests: { data: [number, number, number]; expect: number }[] = [
   {
@@ -17,18 +18,7 @@ describe.each(median3_tests)("median3", (data) => {
   });
 });
 
-const sort_tests = [
-  {
-    data: [5, 2, 4, 5, 6],
-    expect: [2, 4, 5, 5, 6],
-  },
-  {
-    data: [8, 4, 3, 7, 6, 5, 2, 1],
-    expect: [1, 2, 3, 4, 5, 6, 7, 8],
-  },
-];
-
-describe.each(sort_tests)("sort", (data) => {
+describe.each(sortTests)("sort", (data) => {
   it(`${data.data.join(",")}`, () => {
     expect(quicksort(data.data)).toStrictEqual(data.expect);
   });
